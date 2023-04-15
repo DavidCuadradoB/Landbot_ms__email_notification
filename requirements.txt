@@ -1,0 +1,9 @@
+asgiref==3.6.0
+backports.zoneinfo==0.2.1;python_version<"3.9"
+Django==4.2
+sqlparse==0.4.3
+tzdata==2023.3
+dependency-injector
+django-bootstrap4
+pygithub
+mockito~=1.4.0
