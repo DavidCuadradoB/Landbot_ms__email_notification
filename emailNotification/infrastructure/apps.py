@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class EmailnotificationConfig(AppConfig):
+class EmailNotificationConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'emailNotification'
