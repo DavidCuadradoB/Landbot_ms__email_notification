@@ -7,3 +7,4 @@ dependency-injector
 django-bootstrap4
 pygithub
 mockito~=1.4.0
+environ

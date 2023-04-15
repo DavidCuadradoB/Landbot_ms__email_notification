@@ -15,7 +15,7 @@ class NotifySalesUseCaseTest(TestCase):
         a_description = "A description"
         email_sender_mock = mockito.mock(EmailSender)
         when(email_sender_mock).send(mockito.any()).thenReturn(mockito.any())
-        notify_sales_use_case = NotifySalesUseCase(email_sender_mock)
+        notify_sales_use_case = NotifySalesUseCase(email_sender_mock, 'an email')
         notify_sales_command = NotifySalesCommand(a_topic, a_description)
         notify_sales_use_case.execute(notify_sales_command)
         mockito.verify(email_sender_mock).send(mockito.any())
