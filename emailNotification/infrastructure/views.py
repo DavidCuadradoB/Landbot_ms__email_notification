@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from emailNotification import Container
 from emailNotification.application.command.NotifySalesCommand import NotifySalesCommand
 from emailNotification.application.service.NotifySalesUseCase import NotifySalesUseCase
+from emailNotification.infrastructure.Salesconsumer import Salesconsumer
 
 
 # TODO: This view should not exist. This should be a subscriber for the event type notification.
@@ -16,7 +17,8 @@ from emailNotification.application.service.NotifySalesUseCase import NotifySales
 @csrf_exempt
 def sales_email_notification(
         request: HttpRequest,
-        notify_sales_use_case: NotifySalesUseCase = Provide[Container.notify_sales_use_case]
+        notify_sales_use_case: NotifySalesUseCase = Provide[Container.notify_sales_use_case],
+        consumer: Salesconsumer = Provide[Container.consumer]
 ):
     if request.method == 'POST':
         body = json.loads(request.body.decode('utf-8'))
@@ -28,5 +30,12 @@ def sales_email_notification(
         notify_sales_use_case.execute(command)
         data = {
             'event': 'lala'
+        }
+        return JsonResponse(data)
+    elif request.method == 'GET':
+        print("starting kafka")
+        consumer.consume()
+        data = {
+            'event': 'started'
         }
         return JsonResponse(data)
