@@ -136,3 +136,4 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 SALES_EMAIL = 'dcb.test.sales@gmail.com'
+ENGINEERING_EMAIL = 'dbc.test.engineering@gmail.com'

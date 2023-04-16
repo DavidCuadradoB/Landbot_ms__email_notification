@@ -1,7 +1,7 @@
-from dependency_injector.wiring import inject, Provide
 import json
+
+from dependency_injector.wiring import inject, Provide
 from django.http import HttpRequest, JsonResponse, HttpResponseBadRequest
-from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from emailNotification import Container
@@ -18,7 +18,7 @@ from emailNotification.infrastructure.Salesconsumer import Salesconsumer
 def sales_email_notification(
         request: HttpRequest,
         notify_sales_use_case: NotifySalesUseCase = Provide[Container.notify_sales_use_case],
-        consumer: Salesconsumer = Provide[Container.consumer]
+        consumer: Salesconsumer = Provide[Container.sales_consumer]
 ):
     if request.method == 'POST':
         body = json.loads(request.body.decode('utf-8'))
@@ -30,12 +30,5 @@ def sales_email_notification(
         notify_sales_use_case.execute(command)
         data = {
             'event': 'lala'
-        }
-        return JsonResponse(data)
-    elif request.method == 'GET':
-        print("starting kafka")
-        consumer.consume()
-        data = {
-            'event': 'started'
         }
         return JsonResponse(data)

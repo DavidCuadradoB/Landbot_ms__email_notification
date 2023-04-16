@@ -8,4 +8,4 @@ class EmailNotificationConfig(AppConfig):
     name = 'emailNotification'
 
     def ready(self):
-        container.wire(modules=[".views"])
+        container.wire(modules=[".views", ".salesKafkaView", ".engineeringKafkaView"])

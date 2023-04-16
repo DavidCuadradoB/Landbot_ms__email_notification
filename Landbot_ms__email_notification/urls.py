@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("notification/sales/", include("emailNotification.infrastructure.urls")),
+    path("notification/", include("emailNotification.infrastructure.urls")),
     path('admin/', admin.site.urls),
 ]
