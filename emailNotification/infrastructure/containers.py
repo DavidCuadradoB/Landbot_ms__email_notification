@@ -2,7 +2,7 @@ from dependency_injector import containers, providers
 
 from emailNotification.application.service.NotifyEngineeringUseCase import NotifyEngineeringUseCase
 from emailNotification.application.service.NotifySalesUseCase import NotifySalesUseCase
-from emailNotification.infrastructure.Salesconsumer import Salesconsumer
+from emailNotification.infrastructure.SalesConsumer import SalesConsumer
 from emailNotification.infrastructure.engineeringConsumer import EngineeringConsumer
 from emailNotification.infrastructure.repository.DjangoEmailSender import DjangoEmailSender
 
@@ -27,7 +27,7 @@ class Container(containers.DeclarativeContainer):
     )
 
     sales_consumer = providers.Factory(
-        Salesconsumer,
+        SalesConsumer,
         notify_sales_use_case
     )
 

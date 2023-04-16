@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from emailNotification import Container
 from emailNotification.application.command.NotifySalesCommand import NotifySalesCommand
 from emailNotification.application.service.NotifySalesUseCase import NotifySalesUseCase
-from emailNotification.infrastructure.Salesconsumer import Salesconsumer
+from emailNotification.infrastructure.SalesConsumer import SalesConsumer
 
 
 # TODO: This view should not exist. This should be a subscriber for the event type notification.
@@ -18,7 +18,7 @@ from emailNotification.infrastructure.Salesconsumer import Salesconsumer
 def sales_email_notification(
         request: HttpRequest,
         notify_sales_use_case: NotifySalesUseCase = Provide[Container.notify_sales_use_case],
-        consumer: Salesconsumer = Provide[Container.sales_consumer]
+        consumer: SalesConsumer = Provide[Container.sales_consumer]
 ):
     if request.method == 'POST':
         body = json.loads(request.body.decode('utf-8'))

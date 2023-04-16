@@ -1,15 +1,12 @@
-import pickle
-
 import json
 
-from dependency_injector.wiring import Provide, inject
 from kafka import KafkaConsumer
 
 from emailNotification.application.command.NotifySalesCommand import NotifySalesCommand
 from emailNotification.application.service.NotifySalesUseCase import NotifySalesUseCase
 
 
-class Salesconsumer:
+class SalesConsumer:
 
     def __init__(self, notify_sales_use_case: NotifySalesUseCase):
         self.notify_sales_use_case = notify_sales_use_case
