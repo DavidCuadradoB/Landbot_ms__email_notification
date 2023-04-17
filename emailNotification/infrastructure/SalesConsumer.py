@@ -13,7 +13,7 @@ class SalesConsumer:
 
     def consume(self):
         consumer = KafkaConsumer('sales',
-                                 bootstrap_servers=['localhost:9092'],
+                                 bootstrap_servers=['kafka:29092'],
                                  api_version=(0, 10)
                                  # ,consumer_timeout_ms=1000
                                  )
