@@ -11,15 +11,21 @@ In the root folder just run:
 
 `docker-compose up`
 
-### Locally
+This service has a real implementation, there are some environment variables that need to be added:
 
-Install the required packages dependencies:
+create a .env file in the Landbot_ms__email_notification folder
 
-`pip install -r “requirements.txt”`
+```
+cd Landbot_ms__email_notification
+touch .env
+```
+Add the following variables in this file:
 
-run the server:
-
-`python manage.py runserver 0.0.0.0:8001`
+```
+EMAIL_HOST=smtp.gmail.com
+EMAIL_HOST_USER=originMail
+EMAIL_HOST_PASSWORD='password'
+```
 
 ## Test it
 
