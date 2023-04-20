@@ -60,8 +60,8 @@ to a new issue. This architecture helps with the escalation of the system.
 ## TODO
 There are some things that, given more time, I would like to finish:
 
-    Add more validations. The event should be validated, maybe the description is incorrect but, since there are not any requirements about it, I decided focus on other stuff
+* Add more validations. The event should be validated, maybe the description is incorrect but, since there are not any requirements about it, I decided focus on other stuff
 
-    More tests: Integration tests are missing, I would like to add at least one test that tests the whole use case. It was a bit difficult to do it with Python and I preferred to spend more time on other issues. Also, the validations mentioned before should have unit tests. Kafka's implementation and the Email's implementation has no testing, I should think a bit about how to test it.
+* More tests: Integration tests are missing, I would like to add at least one test that tests the whole use case. It was a bit difficult to do it with Python and I preferred to spend more time on other issues. Also, the validations mentioned before should have unit tests. Kafka's implementation and the Email's implementation has no testing, I should think a bit about how to test it.
 
 As I said, I decided to leave this pending and dedicate myself more to other topics. My goal is to get the queuing system up and running and I had some problems with the communication between dockers. My apologies for not having it 100% finished, time is what it was and I had to prioritise.
